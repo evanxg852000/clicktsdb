@@ -1,0 +1,17 @@
+web:
+  host: "0.0.0.0"
+  port: 3000
+
+storage:
+  type: 'clickhouse' 
+  url: http://0.0.0.0:8123 # ClickHouse database server url
+  db: 'default' # ClickHouse database name
+  username: 'default'
+  password: ''
+  index_path: ./index-data
+  memory_budget: 50 # max memory consumption of samples before committing (in MB)
+  sample_budget: 5_000_000 # max number of samples before committing
+
+prometheus:
+  read: true
+  write: true

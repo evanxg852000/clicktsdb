@@ -1,0 +1,40 @@
+version: "3"
+services:
+  clickhouse:
+    # build: 
+    #   context: ./configs/clickhouse/
+    #   dockerfile: Dockerfile
+    image: clickhouse/clickhouse-server
+    restart: no
+    volumes:
+      - ./configs/clickhouse/config.xml:/etc/clickhouse-server/config.d/config.xml
+      - ./configs/clickhouse/users.xml:/etc/clickhouse-server/users.d/users.xml
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  # prometheus:
+  #   image: "prom/prometheus"
+  #   restart: no
+  #   volumes:
+  #     - ./configs/prometheus.yml:/etc/prometheus/prometheus.yml
+  #   ports:
+  #     - "9090:9090"
+  #   extra_hosts:
+  #     - "host.docker.internal:host-gateway"
+  # clicktsdb:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   restart: no
+  #   volumes:
+  #     - ./configs/clicktsdb.yml:/clicktsdb.yml
+  #   command: --config /clicktsdb.yml
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - prometheus
+  #     - clickhouse
+      
+

@@ -1,0 +1,28 @@
+[package]
+name = "fts"
+version = "0.1.0"
+edition = "2021"
+description = "Indexing and full-text search on label/value pairs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+fst = { version="0.4", features = ["levenshtein"]}
+rkyv = "0.7.43"
+regex-automata = { version = "0.1.9", features = ["transducer"] }
+hashbrown = "0.14.3"
+memmap2 = "0.9.3"
+thiserror = "1.0.50"
+bytes = { version = "1", features = ["serde"] }
+# uuid = { version = "1.6.1", features = ["v4"] }
+ulid = "1.1.0"
+crossbeam = "0.8.2"
+smallvec = "1.11.2"
+zstd = "0.13.0"
+bincode = "1.3.3"
+oneshot = "0.1.6"
+byteorder = "1.5.0"
+
+
+[dev-dependencies]
+tempdir = "0.3.7"

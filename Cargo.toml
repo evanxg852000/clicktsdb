@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "clicktsdb",
+    "fts",
+    "services",
+    "storage",
+]
+
+
+[workspace.dependencies]
+anyhow = "1.0.75"
+clickhouse = "0.11.6"
+config = { version = "0.13.4", features = ["toml"]}
+axum = {version = "0.7.2"}
+regex-automata = { version = "0.4.2", features = ["transducer"] }
+serde = {version = "1.0.193", features = ["derive"] }
+serde_json = "1.0.68"
+tokio = { version = "1.0", features = ["full"] }
+tokio-stream = { version = "0.1.14" }
+futures = { version = "0.3.30" }
+
+fts = { version = "0.1.0", path = "./fts" }
+services = { version = "0.1.0", path = "./services" }
+storage = { version = "0.1.0", path = "./storage" }
+
+# [dev-dependencies]
+# tempdir = "0.3.7"
+# clickhouse = { version = "0.11.6", features = ["test-util"] }
